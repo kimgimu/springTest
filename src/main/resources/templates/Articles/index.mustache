@@ -1,0 +1,40 @@
+{{>./layouts/header}}
+
+
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">id</th>
+        <th scope="col">Title</th>
+        <th scope="col">Content</th>
+    </tr>
+    </thead>
+<tbody class="table-group-divider">
+<!-- 컨트롤러에서 넘오는 Model 객체에 저장되서 넘어오는 데이터에 "."을 찍어서 멤버에 접근한다
+-->
+<!--컨트롤러에서 넘어오는 Model객체에 저장되서 넘어오는 값을 사용범위를 정할 수 있다-->
+{{#articleList}}    <!--# 은 시작, / 은 끝 -->
+
+
+<tr>
+    <td>{{id}}</td>
+    <td onClick="location.href='/Articles/{{id}}'" >{{title}}</td>
+    <td>{{content}}</td>
+</tr>
+{{/articleList}}
+
+{{^articleList}}
+<tr>
+    <td>저장된글이없습니다</td>
+</tr>
+
+{{/articleList}}
+</tbody>
+</table>
+<a href="/Articles/new" class="btn btn-success">글쓰기</a>
+
+
+
+
+{{>./layouts/footer}}
